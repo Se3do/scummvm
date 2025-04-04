@@ -464,12 +464,17 @@ void EditGameDialog::open() {
 
 	const Common::PlatformDescription *p = Common::g_platforms;
 	const Common::Platform platform = Common::parsePlatform(ConfMan.get("platform", _domain));
+	const Common::String engineid = ConfMan.get("engineid", _domain);
+
 	sel = 0;
 	for (i = 0; p->code; ++p, ++i) {
 		if (platform == p->id)
 			sel = i + 2;
 	}
 	_platformPopUp->setSelected(sel);
+
+	if (engineid != "sci")
+		_platformPopUp->setEnabled(false);
 }
 
 void EditGameDialog::close() {
