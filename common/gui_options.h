@@ -119,7 +119,7 @@
 
 #define GUIO0() (GUIO_NONE)
 #define GUIO1(a) (a)
-#define GUIO2(a, b) (a b)
+#define GUIO2(a,b) (a b)
 #define GUIO3(a,b,c) (a b c)
 #define GUIO4(a,b,c,d) (a b c d)
 #define GUIO5(a,b,c,d,e) (a b c d e)

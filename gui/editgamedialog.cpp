@@ -381,7 +381,7 @@ void EditGameDialog::addGameControls(GuiObject *boss, const Common::String &pref
 	_platformPopUp->appendEntry("");
 	const Common::PlatformDescription *p = Common::g_platforms;
 	for (; p->code; ++p) {
-		if (checkGameGUIOptionLanguage(p->id, _guioptionsString))
+		if (checkGameGUIOptionPlatform(p->id, _guioptionsString))
 			_platformPopUp->appendEntry(p->description, p->id);
 	}
 }

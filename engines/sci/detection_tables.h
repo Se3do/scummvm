@@ -49,8 +49,11 @@ namespace Sci {
 static const struct ADGameDescription SciGameDescriptions[] = {
 	// Astro Chicken - English DOS
 	// SCI interpreter version 0.000.453
-	{"astrochicken", "", {{"resource.map", 0, "f3d1be7752d30ba60614533d531e2e98", 474}, {"resource.001", 0, "6fd05926c2199af0af6f72f90d0d7260", 126895}, AD_LISTEND}, Common::EN_ANY, Common::kPlatformDOS, ADGF_NO_FLAGS, GUIO_STD16_UNDITHER},
-
+		{"astrochicken", "", {
+		{"resource.map", 0, "f3d1be7752d30ba60614533d531e2e98", 474},
+		{"resource.001", 0, "6fd05926c2199af0af6f72f90d0d7260", 126895},
+		AD_LISTEND},
+		Common::EN_ANY, Common::kPlatformDOS, ADGF_NO_FLAGS, GUIO_STD16_UNDITHER	},
 	// Castle of Dr. Brain - English Amiga (from www.back2roots.org)
 	// Executable scanning reports "1.005.000"
 	// SCI interpreter version 1.000.510

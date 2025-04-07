@@ -104,7 +104,7 @@ extern const char *getPlatformAbbrev(Platform id);
 extern const char *getPlatformDescription(Platform id);
 extern const char *getGameGUIOptionsPlatformCode(Platform platform);
 
-bool checkGameGUIOptionLanguage(Platform plat, const String &str);
+bool checkGameGUIOptionPlatform(Platform plat, const String &str);
 	List<String> getPlatformList();
 
 /** @} */
