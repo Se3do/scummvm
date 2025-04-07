@@ -200,12 +200,5 @@ void updateGameGUIOptions(const String &options, const String &langOption) {
 	ConfMan.setAndFlush("guioptions", newOptionString);
 }
 
-const char *concat(const char *x, const char *y) {
-	char *ret = new char[strlen(x) + strlen(y) + 1];
-	ret[0] = '\0';
-	strncat(ret, x, strlen(x));
-	strncat(ret, y, strlen(y));
-	return ret;
-}
 
 } // End of namespace Common

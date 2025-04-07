@@ -97,88 +97,11 @@ Platform parsePlatform(const String &str) {
 }
 
 const char *getGameGUIOptionsPlatformCode(Platform platform) {
-	switch (platform) {
-	case kPlatformDOS:
-		return "\x34\x01";
-	case kPlatformAmiga:
-		return "\x34\x02";
-	case kPlatformAmstradCPC:
-		return "\x34\x03";
-	case kPlatformAtari8Bit:
-		return "\x34\x04";
-	case kPlatformAtariST:
-		return "\x34\x05";
-	case kPlatformMacintosh:
-		return "\x34\x06";
-	case kPlatformFMTowns:
-		return "\x34\x07";
-	case kPlatformWindows:
-		return "\x34\x08";
-	case kPlatformNES:
-		return "\x34\x09";
-	case kPlatformC64:
-		return "\x34\x0A";
-	case kPlatformCoCo:
-		return "\x34\x0B";
-	case kPlatformCoCo3:
-		return "\x34\x0C";
-	case kPlatformLinux:
-		return "\x34\x0D";
-	case kPlatformAcorn:
-		return "\x34\x0E";
-	case kPlatformSegaCD:
-		return "\x34\x0F";
-	case kPlatform3DO:
-		return "\x34\x10";
-	case kPlatformPCEngine:
-		return "\x34\x11";
-	case kPlatformApple2:
-		return "\x34\x12";
-	case kPlatformApple2GS:
-		return "\x34\x13";
-	case kPlatformPC98:
-		return "\x34\x14";
-	case kPlatformWii:
-		return "\x34\x15";
-	case kPlatformPSX:
-		return "\x34\x16";
-	case kPlatformPS2:
-		return "\x34\x17";
-	case kPlatformPS3:
-		return "\x34\x18";
-	case kPlatformXbox:
-		return "\x34\x19";
-	case kPlatformCDi:
-		return "\x34\x1A";
-	case kPlatformIOS:
-		return "\x34\x1B";
-	case kPlatformAndroid:
-		return "\x34\x1C";
-	case kPlatformOS2:
-		return "\x34\x1D";
-	case kPlatformBeOS:
-		return "\x34\x1E";
-	case kPlatformPocketPC:
-		return "\x34\x1F";
-	case kPlatformMegaDrive:
-		return "\x34\x21";
-	case kPlatformSaturn:
-		return "\x34\x22";
-	case kPlatformPippin:
-		return "\x34\x23";
-	case kPlatformMacintoshII:
-		return "\x34\x24";
-	case kPlatformShockwave:
-		return "\x34\x25";
-	case kPlatformZX:
-		return "\x34\x26";
-	case kPlatformTI994:
-		return "\x34\x27";
-	case kPlatformNintendoSwitch:
-		return "\x34\x28";
-	default:
-		return "\x34\x00"; // Unknown
-	}
+	if (platform == kPlatformUnknown)
+		return "\x34\x7E";
+
+	static const char val[3] = {'\x34', (char)(platform), '\0'};
+	return val;
 }
 
 
@@ -210,7 +133,7 @@ const char *getPlatformDescription(Platform id) {
 }
 
 bool checkGameGUIOptionLanguage(Platform plat, const String &str) {
-	if (!str.contains("lang_")) // If no languages are specified
+	if (!str.contains("\x34")) // If no platforms are specified
 		return true;
 
 	if (str.contains(getGameGUIOptionsPlatformCode(plat)))

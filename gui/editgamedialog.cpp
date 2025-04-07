@@ -464,8 +464,7 @@ void EditGameDialog::open() {
 	}
 
 	const Common::Platform platform = Common::parsePlatform(ConfMan.get("platform", _domain));
-	printf_s("%s \n", _guioptionsString.c_str());
-	printf_s("%s \n", _guioptions.c_str());
+
 	if (ConfMan.hasKey("platform", _domain)) {
 		_platformPopUp->setSelectedTag(platform);
 	} else {
