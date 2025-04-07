@@ -166,6 +166,12 @@ String parseGameGUIOptions(const String &str) {
 			ii = c_end;
 		}
 	}
+	// Check for Additional Platforms
+	for (int i = 0; i < str.size(); ++i) {
+		if (str[i] == '\x34') {
+			res += String(str[i]) + String(str[i + 1]);
+		}
+	}
 
 	return res;
 }
@@ -177,6 +183,13 @@ const String getGameGUIOptionsDescription(const String &options) {
 		if (options.contains(g_gameOptions[i].option[0]))
 			res += String(g_gameOptions[i].desc) + " ";
 
+	// Check for Additional Platforms
+	for (int i = 0; i < options.size(); ++i) {
+		if (options[i] == '\x34') {
+			res += String(options[i]) + String(options[i + 1]) + " ";
+		}
+	}
+
 	res.trim();
 
 	return res;
@@ -187,5 +200,12 @@ void updateGameGUIOptions(const String &options, const String &langOption) {
 	ConfMan.setAndFlush("guioptions", newOptionString);
 }
 
+const char *concat(const char *x, const char *y) {
+	char *ret = new char[strlen(x) + strlen(y) + 1];
+	ret[0] = '\0';
+	strncat(ret, x, strlen(x));
+	strncat(ret, y, strlen(y));
+	return ret;
+}
 
 } // End of namespace Common

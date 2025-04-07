@@ -119,7 +119,7 @@
 
 #define GUIO0() (GUIO_NONE)
 #define GUIO1(a) (a)
-#define GUIO2(a,b) (a b)
+#define GUIO2(a, b) (Common::concat(a, b))
 #define GUIO3(a,b,c) (a b c)
 #define GUIO4(a,b,c,d) (a b c d)
 #define GUIO5(a,b,c,d,e) (a b c d e)
@@ -130,6 +130,8 @@
 #define GUIO10(a,b,c,d,e,f,g,h,i,j) (a b c d e f g h i j)
 #define GUIO11(a,b,c,d,e,f,g,h,i,j,k) (a b c d e f g h i j k)
 #define GUIO12(a,b,c,d,e,f,g,h,i,j,k,l) (a b c d e f g h i j k l)
+
+#define GUIO_PLATFORM(a) (Common::getGameGUIOptionsPlatformCode(a))
 
 namespace Common {
 
@@ -154,6 +156,8 @@ const String getGameGUIOptionsDescription(const String &options);
  * parameter.
  */
 void updateGameGUIOptions(const String &options, const String &langOption);
+
+const char *concat(const char *x, const char *y);
 
 /** @} */
 
